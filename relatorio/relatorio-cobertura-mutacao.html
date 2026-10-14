@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Relatório de cobertura e mutação — intro-junit</title>
+  <style>
+    :root { color-scheme: light; --ink:#172033; --muted:#58657a; --line:#d9e1ee; --blue:#2456a6; --pale:#f3f6fb; --green:#18794e; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:#eef2f8; color:var(--ink); font:16px/1.55 "Segoe UI",Arial,sans-serif; }
+    main { max-width:1100px; margin:32px auto; padding:40px 52px; background:#fff; box-shadow:0 8px 32px #17203318; }
+    h1,h2,h3 { line-height:1.2; }
+    h1 { margin:0 0 8px; font-size:32px; }
+    h2 { margin-top:38px; padding-bottom:9px; border-bottom:2px solid var(--line); }
+    h3 { margin-top:28px; }
+    .subtitle,.muted { color:var(--muted); }
+    .meta { margin:22px 0; padding:16px 20px; background:var(--pale); border-left:4px solid var(--blue); }
+    table { width:100%; border-collapse:collapse; margin:16px 0 24px; font-size:15px; }
+    th,td { padding:11px 12px; border:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { background:var(--pale); }
+    .good { color:var(--green); font-weight:700; }
+    .note { padding:14px 18px; background:#fff8e7; border-left:4px solid #d28b00; }
+    .evidence { margin:14px 0 28px; padding:16px; border:1px solid var(--line); border-radius:8px; background:#fbfcfe; break-inside:avoid; }
+    .evidence img { display:block; width:100%; height:auto; border:1px solid #cbd5e1; background:white; }
+    .links a { margin-right:18px; }
+    code { background:var(--pale); padding:2px 5px; border-radius:3px; }
+    footer { margin-top:38px; padding-top:12px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
+    @media print {
+      body { background:white; font-size:11pt; }
+      main { max-width:none; margin:0; padding:12mm; box-shadow:none; }
+      h1 { font-size:24pt; }
+      h2 { break-after:avoid; }
+      .evidence { break-inside:avoid; }
+      .evidence img { max-height:170mm; object-fit:contain; object-position:top left; }
+      a { color:inherit; text-decoration:none; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Cobertura de testes e escore de mutação</h1>
+  <div class="note"><strong>Relatórios isolados por suíte:</strong> para os oito envios separados de Calculadora e Carrinho e a comparação correta entre testes próprios e GPT, consulte o <a href="comparacao-isolada.md">comparativo isolado</a> e os PNGs em <a href="para-upload/">para-upload</a>. Este documento abaixo registra a execução conjunta inicial.</div>
+  <div class="subtitle">Projeto intro-junit · Carrinho, Calculadora e Jokenpo</div>
+  <div class="meta">
+    <strong>Objetivo.</strong> Medir cobertura estrutural e adequação da suíte de testes das três classes usando JaCoCo (equivalente à visualização de cobertura do EclEmma) e PIT Mutation Testing.<br>
+    <strong>Execução.</strong> Java 21.0.11 · Maven 3.9.15 · JUnit 5.11.4 · JaCoCo 0.8.13 · PIT 1.17.4 · 14/10/2026.<br>
+    <strong>Testes:</strong> 40 testes executados; 0 falhas, 0 erros e 0 ignorados.
+  </div>
+
+  <h2>1. Cobertura estrutural (JaCoCo)</h2>
+  <p>Para a leitura dos critérios, usamos cobertura de linhas executáveis como indicador de <strong>todos-nós</strong> e cobertura de desvios/branches como indicador operacional de <strong>todas-arestas decisórias</strong>. Complexidade ciclomática é o valor do contador <em>Cxty</em> do JaCoCo. Os três objetos têm todos os desvios instrumentados cobertos.</p>
+  <table>
+    <thead><tr><th>Classe</th><th>Todos-nós<br>(linhas)</th><th>Todas-arestas decisórias<br>(branches JaCoCo)</th><th>Complexidade ciclomática<br>(JaCoCo)</th></tr></thead>
+    <tbody>
+      <tr><td>Carrinho</td><td class="good">17/17 · 100%</td><td class="good">4/4 · 100%</td><td>8</td></tr>
+      <tr><td>Calculadora</td><td class="good">18/18 · 100%</td><td class="good">8/8 · 100%</td><td>12</td></tr>
+      <tr><td>Jokenpo</td><td class="good">9/9 · 100%</td><td class="good">14/14 · 100%</td><td>9</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Evidências de cobertura por classe</h3>
+  <p class="muted">As capturas abaixo exibem as páginas originais de análise do JaCoCo, embutidas neste documento. No relatório do JaCoCo, “Missed Branches” igual a 0 confirma a cobertura de todos os desvios contabilizados.</p>
+  <section class="evidence">
+    <h3>Classe Carrinho — JaCoCo</h3>
+    <p>Linhas: 17/17 (100%) · Branches: 4/4 (100%) · Cxty: 8</p>
+    <img src="evidencias/jacoco-Carrinho.png" alt="Captura de tela do relatório JaCoCo da classe Carrinho">
+  </section>
+  <section class="evidence">
+    <h3>Classe Calculadora — JaCoCo</h3>
+    <p>Linhas: 18/18 (100%) · Branches: 8/8 (100%) · Cxty: 12</p>
+    <img src="evidencias/jacoco-Calculadora.png" alt="Captura de tela do relatório JaCoCo da classe Calculadora">
+  </section>
+  <section class="evidence">
+    <h3>Classe Jokenpo — JaCoCo</h3>
+    <p>Linhas: 9/9 (100%) · Branches: 14/14 (100%) · Cxty: 9</p>
+    <img src="evidencias/jacoco-Jokenpo.png" alt="Captura de tela do relatório JaCoCo da classe Jokenpo">
+  </section>
+
+  <h2>2. Escore de mutação (PIT)</h2>
+  <p>O escore de mutação é a razão entre mutantes mortos (killed) e mutantes válidos gerados, excluindo mutantes não viáveis. Mutantes sobreviventes indicam alterações que a suíte não distinguiu do programa original.</p>
+  <table>
+    <thead><tr><th>Classe</th><th>Mortos</th><th>Sobreviventes</th><th>Mutantes válidos</th><th>Escore</th></tr></thead>
+    <tbody>
+      <tr><td>Carrinho</td><td>6</td><td>0</td><td>6</td><td class="good">6/6 · 100%</td></tr>
+      <tr><td>Calculadora</td><td>17</td><td>2</td><td>19</td><td>17/19 · 89,47% (89% no PIT)</td></tr>
+      <tr><td>Jokenpo</td><td>14</td><td>0</td><td>14</td><td class="good">14/14 · 100%</td></tr>
+      <tr><th>Total</th><th>37</th><th>2</th><th>39</th><th>37/39 · 94,87% (95% no PIT)</th></tr>
+    </tbody>
+  </table>
+  <p><strong>Mutantes sobreviventes em Calculadora:</strong> (1) limite do laço de <code>somatoria</code> (alteração de fronteira em <code>n &gt;= 0</code>); (2) limite da comparação em <code>compara</code> (alteração de fronteira em <code>a &gt; b</code>). Os testes exercitam os caminhos, mas não falham para essas duas mutações. Casos de fronteira adicionais podem fortalecer a suíte.</p>
+
+  <h2>3. Interpretação e limites da medição</h2>
+  <ul>
+    <li>A cobertura de linhas é uma aproximação prática do critério todos-nós para os nós executáveis representados no fonte.</li>
+    <li>O JaCoCo mede <em>branches</em> (resultados dos desvios condicionais/switch), não todas as arestas sequenciais de um grafo de fluxo de controle formal. Assim, “todas-arestas” neste relatório significa cobertura de todas as arestas decisórias contabilizadas pelo JaCoCo; a ferramenta não fornece diretamente uma contagem independente de todas as arestas do CFG.</li>
+    <li>A complexidade ciclomática reportada é a soma de complexidade dos métodos da classe, conforme contador JaCoCo. Ela não é uma porcentagem de cobertura.</li>
+    <li>Os escores descrevem a suíte existente no repositório clonado; não distinguem automaticamente quais exercícios foram originalmente escritos pela estudante ou pelo ChatGPT.</li>
+  </ul>
+
+  <h2>4. Relatórios gerados e reprodução</h2>
+  <ul class="links">
+    <li><a href="../target/site/jacoco/index.html">Relatório completo JaCoCo</a></li>
+    <li><a href="../target/pit-reports/index.html">Relatório completo PIT</a></li>
+  </ul>
+  <p>Para reproduzir na raiz do projeto: <code>mvn clean verify</code> gera a cobertura em <code>target/site/jacoco/</code>; em seguida, <code>mvn org.pitest:pitest-maven:mutationCoverage</code> gera o relatório de mutação em <code>target/pit-reports/</code>.</p>
+  <footer>Relatório preparado a partir da execução local dos testes e dos relatórios XML/HTML produzidos por JaCoCo e PIT.</footer>
+</main>
+</body>
+</html>

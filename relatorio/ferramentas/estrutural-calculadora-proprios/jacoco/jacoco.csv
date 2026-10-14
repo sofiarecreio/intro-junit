@@ -1,0 +1,6 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+intro-junit,produto,ProdutoNaoEncontradoException,3,0,0,0,2,0,1,0,1,0
+intro-junit,produto,Produto,30,0,0,0,11,0,6,0,6,0
+intro-junit,carrinho,Carrinho,53,0,4,0,17,0,8,0,6,0
+intro-junit,calculadora,Calculadora,0,55,0,8,0,18,0,12,0,8
+intro-junit,jokenpo,Jokenpo,38,0,14,0,9,0,9,0,2,0
